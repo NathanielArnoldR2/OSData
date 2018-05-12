@@ -4,8 +4,6 @@ param (
   $Workflow
 )
 
-No.
-
 #region Functions/Variables
 $OSData = @{
   VMVersionDefault = $null
