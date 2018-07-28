@@ -177,15 +177,6 @@ New-OSObj -FilePrefix "W10 v1803" `
 #endregion
 
 #region DISABLED DEFINITIONS
-# No current use case. Is widely used in enterprises due to the longevity of
-# server builds, but I have only *once* been asked to load it here.
-New-OSObj -FilePrefix "S2008 R2 SP1" `
-          -Name "Windows Server 2008 R2 Service Pack 1" `
-          -Editions ServerStandard,ServerStandardCore `
-          -Generations 1 `
-          -Targeting "S2008 R2","S2008R2","S2008" `
-          -Workflows WIM
-
 # No current use case. I have never been *specifically* asked to load this OS,
 # and nobody seemed to notice when I switched it out for SP1. If it ever *is*
 # needed again, it must be targeted using the fictitious "SP0" identifier.
