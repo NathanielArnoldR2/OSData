@@ -91,9 +91,19 @@ New-EditionObj -Name ServerStandardCore -Targeting "Core"
 
 #region SERVER DEFINITIONS
 
+# A point of reference for unit-testing PSServiceManager module.
+New-OSObj -FilePrefix "S2008 R2 SP1" `
+          -Name "Windows Server 2008 R2 Service Pack 1" `
+          -Editions ServerStandard,ServerStandardCore `
+          -Generations 1 `
+          -Targeting "S2008 R2","S2008R2","S2008" `
+          -Workflows WIM,VHD
+
 # Required to translate S2008R2-era Hyper-V exports into XML files that can be
 # imported by subsequent operating systems. Superceded for all other uses, and
 # thus must be targeted using the fictitious "R1" identifier.
+#
+# Also a point of reference for unit-testing PSServiceManager module.
 New-OSObj -FilePrefix "S2012" `
           -Name "Windows Server 2012" `
           -Editions ServerStandard,ServerStandardCore `
@@ -138,16 +148,16 @@ New-OSObj -FilePrefix "W8.1" `
           -Targeting "W8.1" `
           -Workflows WIM,VHD
 
-# Primary OS for classroom client loads.
+# Legacy OS for classroom client loads.
 New-OSObj -FilePrefix "W10 v1703" `
           -Name "Windows 10 v1703" `
           -Editions Enterprise `
           -Generations 1,2 `
-          -Targeting "W10 v1703","W10" `
+          -Targeting "W10 v1703" `
           -Workflows WIM,VHD,Update `
           -WsusProductName "Windows 10"
 
-# Evaluation OS for classroom client loads.
+# Legacy OS for classroom client loads.
 New-OSObj -FilePrefix "W10 v1709" `
           -Name "Windows 10 v1709" `
           -Editions Enterprise `
@@ -156,12 +166,12 @@ New-OSObj -FilePrefix "W10 v1709" `
           -Workflows WIM,VHD,Update `
           -WsusProductName "Windows 10"
 
-# Evaluation OS for classroom client loads.
+# Primary OS for classroom client loads.
 New-OSObj -FilePrefix "W10 v1803" `
           -Name "Windows 10 v1803" `
           -Editions Enterprise `
           -Generations 1,2 `
-          -Targeting "W10 v1803" `
+          -Targeting "W10 v1803","W10" `
           -Workflows WIM,VHD,Update `
           -WsusProductName "Windows 10"
 #endregion
