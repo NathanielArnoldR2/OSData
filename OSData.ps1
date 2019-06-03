@@ -100,10 +100,9 @@ New-OSObj -FilePrefix "S2008 R2 SP1" `
           -Workflows WIM,VHD
 
 # Required to translate S2008R2-era Hyper-V exports into XML files that can be
-# imported by subsequent operating systems. Superceded for all other uses, and
-# thus must be targeted using the fictitious "R1" identifier.
-#
-# Also a point of reference for unit-testing PSServiceManager module.
+# imported by subsequent operating systems. Superceded for all other classroom
+# uses, and thus must be targeted using the fictitious "R1" identifier. Is also
+# a point of reference for unit-testing PSServiceManager module.
 New-OSObj -FilePrefix "S2012" `
           -Name "Windows Server 2012" `
           -Editions ServerStandard,ServerStandardCore `
@@ -126,6 +125,14 @@ New-OSObj -FilePrefix "S2016" `
           -Generations 1,2 `
           -Targeting "S2016" `
           -Workflows WIM,VHD,Update
+
+# In evaluation for classroom server loads.
+New-OSObj -FilePrefix "S2019" `
+          -Name "Windows Server 2019" `
+          -Editions ServerStandard,ServerStandardCore `
+          -Generations 1,2 `
+          -Targeting "S2019" `
+          -Workflows WIM,VHD
 #endregion
 
 #region CLIENT DEFINITIONS
@@ -166,12 +173,29 @@ New-OSObj -FilePrefix "W10 v1709" `
           -Workflows WIM,VHD,Update `
           -WsusProductName "Windows 10"
 
-# Primary OS for classroom client loads.
+# Legacy OS for classroom client loads.
 New-OSObj -FilePrefix "W10 v1803" `
           -Name "Windows 10 v1803" `
           -Editions Enterprise `
           -Generations 1,2 `
-          -Targeting "W10 v1803","W10" `
+          -Targeting "W10 v1803" `
+          -Workflows WIM,VHD,Update `
+          -WsusProductName "Windows 10"
+
+# Primary OS for classroom client loads.
+New-OSObj -FilePrefix "W10 v1809" `
+          -Name "Windows 10 v1809" `
+          -Editions Enterprise `
+          -Generations 1,2 `
+          -Targeting "W10 v1809","W10" `
+          -Workflows WIM,VHD,Update `
+          -WsusProductName "Windows 10"
+
+New-OSObj -FilePrefix "W10 v1903" `
+          -Name "Windows 10 v1903" `
+          -Editions Enterprise `
+          -Generations 1,2 `
+          -Targeting "W10 v1903" `
           -Workflows WIM,VHD,Update `
           -WsusProductName "Windows 10"
 #endregion
